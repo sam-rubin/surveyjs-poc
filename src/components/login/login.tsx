@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 
 
 
-const Login = ({ setUser }: React.Dispatch<React.SetStateAction<IUser>> ) => {
+const Login = ({ setUser }: any ) => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
 
