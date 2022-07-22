@@ -1,24 +1,26 @@
 import React from 'react';
 import logo from './logo.svg';
-import { useState } from 'react';
+import { Error } from './Error';
+
 import './App.css';
 import {Login} from './components/login/login';
-
+import { BrowserRouter,Routes,Route } from 'react-router-dom';
+import { useState } from 'react';
 interface IUser {
   name: string,
   email: string
 }
-
 function App() {
-  const [user, setUser] = useState<IUser>({name:"sa",email:""});
-
+const [user,setUser]  = useState({});
   return (
-    <div>
-    <h1>Hello World</h1>
-    <Login setUser={setUser}/>
-     { user!.name}
-     {user!.email}
-    </div>
+   <div>
+    <BrowserRouter>
+      <Routes>
+         <Route path='/' element={<Login setUser={setUser}></Login>} />
+         <Route path='*' element={<Error />} />
+      </Routes>
+    </BrowserRouter>
+   </div>
   );
 }
 
